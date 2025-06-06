@@ -7,18 +7,22 @@ class DocBuilder:
         self._styles = styles()
         self._doc = SimpleDocTemplate(name + ".pdf")
         self._flow = []
-        self._questions = []
+        self._question_count = 0
+
+        self._flow.append(Paragraph(self._name, self._styles["Title"]))
 
     def build(self):
-        self._flow.append(Paragraph(self._name, self._styles["Title"]))
-        for question in self._questions:
-            self._flow.append(KeepTogether([
-                question,
+        self._doc.build(self._flow)
+
+    def add_question(self, question: str):
+        self._question_count += 1
+        text = f"{self._question_count}. {question}"
+        self._flow.append(KeepTogether([
+                Paragraph(text, self._styles["Normal"]),
                 Spacer(1, 10),
                 HorizonalLine,
             ]))
-        self._doc.build(self._flow)
 
-    def add_question(self, question):
-        text = f"{len(self._questions) + 1}. {question}"
-        self._questions.append(Paragraph(text, self._styles["Normal"]))
+    def add_parragraph(self, text: str):
+        self._flow.append(Paragraph(text, self._styles["Normal"]))
+        self._flow.append(Spacer(1, 10))

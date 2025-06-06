@@ -2,7 +2,7 @@ import sys
 import os
 from pathlib import Path
 
-from doc_builder import DocBuilder
+from parser import Parser
 
 def handle_argv():
     if len(sys.argv) != 2:
@@ -20,13 +20,9 @@ def handle_argv():
 
 def main():
     target_path = handle_argv()
-    doc_builder = DocBuilder(target_path.stem)
-
-    with open(target_path, 'r') as text_file:
-        for line in text_file:
-            doc_builder.add_question(line.strip())
-
-    doc_builder.build();
+    parser = Parser(target_path)
+    parser.parse()
+    parser.build()
     print("Generated pdf.")
 
 
