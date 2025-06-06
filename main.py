@@ -20,16 +20,13 @@ def handle_argv():
 
 def main():
     target_path = handle_argv()
-
-    doc_name = target_path.stem
-    doc_builder = DocBuilder(doc_name)
+    doc_builder = DocBuilder(target_path.stem)
 
     with open(target_path, 'r') as text_file:
         for line in text_file:
             doc_builder.addLine(line.strip())
 
     doc_builder.build();
-    
     print("Generated pdf.")
 
 
