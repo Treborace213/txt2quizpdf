@@ -19,6 +19,8 @@ class Parser():
                 # If the length of the line is 0 or 1 skip it.
                 if len(line) <= 1:
                     print(f"Line {line_number} skipped: must be at least 2 characters long.")
+                elif line == "---":
+                    self._doc_builder.add_horizontal_line()
                 else:
                     match line[0]:
                         case '!': # Paragraph

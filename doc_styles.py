@@ -17,9 +17,9 @@ def styles():
             name="Normal",
             parent=base["Normal"],
             fontSize=14,
-            leading=12,
-            spaceAfter=8
+            leading=4,
+            spaceAfter=4
         )
     }
 
-HorizonalLine = HRFlowable(width="100%", thickness=1, color="black", spaceBefore=16, spaceAfter=16)
+HorizonalLine = HRFlowable(width="100%", thickness=1, color="black", spaceBefore=4, spaceAfter=4)

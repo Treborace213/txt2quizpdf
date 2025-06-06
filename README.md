@@ -10,7 +10,8 @@ The PDF will be saved in the current working directory with the same file name a
 
 ### Input Format  
 - No prefix → A question  
-- `!` → A paragraph of text  
+- `!` → A paragraph of text
+- `---` → A horizontal line
 
 #### Example:
 ```

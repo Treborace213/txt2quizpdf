@@ -19,10 +19,15 @@ class DocBuilder:
         text = f"{self._question_count}. {question}"
         self._flow.append(KeepTogether([
                 Paragraph(text, self._styles["Normal"]),
-                Spacer(1, 10),
+                Spacer(1, 30),
                 HorizonalLine,
             ]))
 
     def add_parragraph(self, text: str):
-        self._flow.append(Paragraph(text, self._styles["Normal"]))
-        self._flow.append(Spacer(1, 10))
+         self._flow.append(KeepTogether([
+                Paragraph(text, self._styles["Normal"]),
+                Spacer(1, 10)
+            ]))
+
+    def add_horizontal_line(self):
+        self._flow.append(HorizonalLine)
