@@ -1,4 +1,5 @@
 from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
+from reportlab.platypus import HRFlowable
 from reportlab.lib.enums import TA_CENTER
 
 def styles():
@@ -20,3 +21,5 @@ def styles():
             spaceAfter=8
         )
     }
+
+HorizonalLine = HRFlowable(width="100%", thickness=1, color="black", spaceBefore=16, spaceAfter=16)
