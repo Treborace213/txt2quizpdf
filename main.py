@@ -4,19 +4,22 @@ from pathlib import Path
 
 from doc_builder import DocBuilder
 
-def main():
-    if len(sys.argv) < 2:
+def handle_argv():
+    if len(sys.argv) != 2:
         print("Usage: python main.py <path_to_input_txt>")
         sys.exit(1)
 
-    input_path_str = sys.argv[1]
-    target_path_str = os.path.normpath(os.path.expandvars(os.path.expanduser(input_path_str)))
+    input_path = sys.argv[1]
+    target_path = os.path.normpath(os.path.expandvars(os.path.expanduser(input_path)))
 
-    if not os.path.isfile(target_path_str):
-        print(f"Error: File does not exist -> {target_path_str}")
+    if not os.path.isfile(target_path):
+        print(f"Error: File does not exist -> {target_path}")
         sys.exit(1)
+    return Path(target_path)
 
-    target_path = Path(target_path_str)
+
+def main():
+    target_path = handle_argv()
 
     doc_name = target_path.stem
     doc_builder = DocBuilder(doc_name)
