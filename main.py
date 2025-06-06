@@ -1,8 +1,8 @@
 import sys
 import os
 from pathlib import Path
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
-from reportlab.lib.styles import getSampleStyleSheet
+
+from doc_builder import DocBuilder
 
 def main():
     if len(sys.argv) < 2:
@@ -19,20 +19,14 @@ def main():
     target_path = Path(target_path_str)
 
     doc_name = target_path.stem
-
-    doc = SimpleDocTemplate(doc_name + ".pdf")
-    styles = getSampleStyleSheet()
-
-    flow = []
-
-    flow.append(Paragraph(doc_name, styles["Title"]))
-    flow.append(Spacer(1,12))
+    doc_builder = DocBuilder(doc_name)
 
     with open(target_path, 'r') as text_file:
         for line in text_file:
-            flow.append(Paragraph(line.strip(), styles["Normal"]))
+            doc_builder.addLine(line.strip())
+
+    doc_builder.build();
     
-    doc.build(flow)
     print("Generated pdf.")
 
 
