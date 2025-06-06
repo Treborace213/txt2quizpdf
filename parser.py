@@ -13,12 +13,15 @@ class Parser():
 
     def parse(self):
         with open(self._path, 'r') as text_file:
-            for line in text_file:
-                line.strip()
+            for line_number, line in enumerate(text_file, start=1):
+                line = line.strip()
 
-                # Paragraph
-                if line[0] == '!':
-                    self._doc_builder.add_parragraph(line[1::])
-                # Question
-                else: 
-                    self._doc_builder.add_question(line)
+                # If the length of the line is 0 or 1 skip it.
+                if len(line) <= 1:
+                    print(f"Line {line_number} skipped: must be at least 2 characters long.")
+                else:
+                    match line[0]:
+                        case '!': # Paragraph
+                            self._doc_builder.add_parragraph(line[1::])
+                        case _: # Question
+                            self._doc_builder.add_question(line)
