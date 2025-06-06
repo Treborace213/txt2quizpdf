@@ -18,5 +18,5 @@ class DocBuilder:
         self._doc.build(self._flow)
 
     def add_question(self, question):
-        text = f"{len(self._questions) + 1}: {question}"
+        text = f"{len(self._questions) + 1}. {question}"
         self._questions.append(Paragraph(text, self._styles["Normal"]))
