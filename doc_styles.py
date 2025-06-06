@@ -17,7 +17,7 @@ def styles():
             name="Normal",
             parent=base["Normal"],
             fontSize=14,
-            leading=14,
+            leading=12,
             spaceAfter=8
         )
     }

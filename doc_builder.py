@@ -1,4 +1,4 @@
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
+from reportlab.platypus import SimpleDocTemplate, KeepTogether, Paragraph, Spacer
 from doc_styles import styles, HorizonalLine
 
 class DocBuilder:
@@ -12,9 +12,11 @@ class DocBuilder:
     def build(self):
         self._flow.append(Paragraph(self._name, self._styles["Title"]))
         for question in self._questions:
-            self._flow.append(question)
-            self._flow.append(Spacer(1, 10))
-            self._flow.append(HorizonalLine)
+            self._flow.append(KeepTogether([
+                question,
+                Spacer(1, 10),
+                HorizonalLine,
+            ]))
         self._doc.build(self._flow)
 
     def add_question(self, question):
