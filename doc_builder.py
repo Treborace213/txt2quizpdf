@@ -31,3 +31,6 @@ class DocBuilder:
 
     def add_horizontal_line(self):
         self._flow.append(HorizonalLine)
+
+    def add_spacer(self, height: int):
+        self._flow.append(Spacer(1,height))

@@ -12,6 +12,7 @@ The PDF will be saved in the current working directory with the same file name a
 - No prefix → A question  
 - `!` → A paragraph of text
 - `---` → A horizontal line
+- '$[x]' → Vertical space x units tall
 
 #### Example:
 ```
