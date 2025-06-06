@@ -24,7 +24,7 @@ def main():
 
     with open(target_path, 'r') as text_file:
         for line in text_file:
-            doc_builder.addLine(line.strip())
+            doc_builder.add_question(line.strip())
 
     doc_builder.build();
     print("Generated pdf.")
