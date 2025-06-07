@@ -6,7 +6,7 @@ class Parser():
         symbolToInstruction = \
                 {instr.value: instr for instr in Instruction}
         
-        with open(path, 'r') as file:
+        with open(path, 'r', encoding='utf-8') as file:
             line_number = 0
             line = file.readline()
             
