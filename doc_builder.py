@@ -61,6 +61,7 @@ class DocBuilder:
                 case Instruction.QUESTION:
                     if state[-1] not in (_BuildStates.QUESTIONLIST, _BuildStates.NUMQUESTIONLIST):
                         skip = True
+                        instructions.pop_read()
                     else:
                         self._add_question(instructions.pop_read(), state[-1])
                         state.append(_BuildStates.WAITINGFORAWNSER)
@@ -68,6 +69,7 @@ class DocBuilder:
                 case Instruction.QUESTIONWITHSPACE:
                     if state[-1] not in (_BuildStates.QUESTIONLIST, _BuildStates.NUMQUESTIONLIST):
                         skip = True
+                        instructions.pop_read()
                     else:
                         self._add_question(instructions.pop_read(), state[-1], answer_space=True)
                         state.append(_BuildStates.WAITINGFORAWNSER)
@@ -75,6 +77,7 @@ class DocBuilder:
                 case Instruction.ANSWER:
                     if state[-1] != _BuildStates.WAITINGFORAWNSER:
                         skip = True
+                        self._add_awnser(instructions.pop_read())
                     else:
                         self._add_awnser(instructions.pop_read())
                         state.pop()
@@ -83,6 +86,7 @@ class DocBuilder:
                     if state[-1] not in \
                         (_BuildStates.NORMAL, _BuildStates.QUESTIONLIST, _BuildStates.NUMQUESTIONLIST):
                         skip = True
+                        instructions.pop_read()
                     else:
                         self._add_title(instructions.pop_read())
                     
@@ -90,6 +94,7 @@ class DocBuilder:
                     if state[-1] not in \
                         (_BuildStates.NORMAL, _BuildStates.QUESTIONLIST, _BuildStates.NUMQUESTIONLIST):
                         skip = True
+                        instructions.pop_read()
                     else:
                         self._add_paragraph(instructions.pop_read())
 
@@ -104,6 +109,7 @@ class DocBuilder:
                     if state[-1] not in \
                         (_BuildStates.NORMAL, _BuildStates.QUESTIONLIST, _BuildStates.NUMQUESTIONLIST):
                         skip = True
+                        instructions.pop_read()
                     else:
                         try:
                             height = int(instructions.pop_read())
