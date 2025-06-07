@@ -1,39 +1,50 @@
-from pathlib import Path
-
-from doc_builder import DocBuilder
-
+from instruction import Instruction, InstructionHandler, midLine_chars
+from utils import tell_skipped
 
 class Parser():
-    def __init__(self, file_path: Path):
-        self._path = file_path
-        self._doc_builder = DocBuilder(file_path.stem)
+    def parse(path: str) -> InstructionHandler:
+        symbolToInstruction = \
+                {instr.value: instr for instr in Instruction}
+        
+        with open(path, 'r') as file:
+            line_number = 0
+            line = file.readline()
+            
+            handler = InstructionHandler()
 
-    def build(self):
-        self._doc_builder.build()
+            while line:
+                line_number += 1
+                line = line.strip()
 
-    def parse(self):
-        with open(self._path, 'r') as text_file:
-            for line_number, line in enumerate(text_file, start=1):
-                l = line.strip()
+                currentRead = ""
+                ignoreNextInstructChar = False
+                
+                # Read each line untill the end is reached.
+                for i, char in enumerate(line):
+                    if char in midLine_chars and not ignoreNextInstructChar:
+                        if char == '\\':
+                              ignoreNextInstructChar = True
+                        # Break out of the loop as the rest of the chars are comments
+                        elif char == '#':
+                            break
+                        elif char == '|':
+                            handler.add_read(currentRead)
+                            currentRead = ""
+                            handler.add_instruction(symbolToInstruction[char], line_number)
+                    else:
+                        try:
+                            # If first char
+                            if i == 0:
+                                    handler.add_instruction(symbolToInstruction[line[0]], line_number)
+                            else:
+                                currentRead += char
+                        except KeyError:
+                            tell_skipped(line_number, "Unexpected line start")
 
-                # If the length of the line is 0 or 1 skip it.
-                if len(l) <= 1:
-                    print(f"Line {line_number} skipped: must be at least 2 characters long.")
-                elif l == "---":
-                    self._doc_builder.add_horizontal_line()
-                else:
-                    match l[0]:
-                        case '!': # Paragraph
-                            self._doc_builder.add_parragraph(l[1:])
-                        case '$': # Multi char command
-                            l = l[1::]
-                            try: # Space command
-                                if len(l) > 2 and l[0] == '[' and l[-1] == ']':
-                                    self._doc_builder.add_spacer(int(l[1:-1]))
-                                else:
-                                    print(f"Line {line_number} skipped: invalid command.")
-                            except (ValueError) as e:
-                                print(f"Line {line_number} skipped: space command size is not an integer.")
+                # After reading each line - if the line was not empty
+                if currentRead.strip():
+                    handler.add_read(currentRead)
+                    currentRead = ""
+                line = file.readline()
 
-                        case _: # Question
-                            self._doc_builder.add_question(l)
+        return handler
