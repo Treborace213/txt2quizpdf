@@ -28,4 +28,4 @@ class DocBuilder:
         self._flow.append(Spacer(1, 10))
 
     def add_subtitle(self, text: str):
-        self._flow.append(Paragraph(self._name, self._styles["Subtitle"]))
+        self._flow.append(Paragraph(text, self._styles["Subtitle"]))
