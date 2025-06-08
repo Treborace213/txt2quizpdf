@@ -14,7 +14,7 @@ Any issues will be flagged and that line will be skipped.
 ### Line Start Format
 - `!` → Subtitle  
 - `?` → Question  
-- `>` → Paragraph text  
+- `>` → Paragraph  
 - `~` → Page break  
 - `#` → Comment (ignored line)  
 
@@ -26,13 +26,13 @@ Any issues will be flagged and that line will be skipped.
 ```
 # Sample quiz
 
-!Welcome to the General Knowledge Quiz
+! Welcome to the General Knowledge Quiz
 
->This quiz covers a range of general knowledge topics. Read each question carefully and answer in the space provided.
+> This quiz covers a range of general knowledge topics. Read each question carefully and answer in the space provided.
 
-?What is the capital city of France? # Paris
-?Who wrote the play "Romeo and Juliet"? # William Shakespeare
-?What is the chemical symbol for hydrogen? # H
+? What is the capital city of France? # Paris
+? Who wrote the play "Romeo and Juliet"? # William Shakespeare
+? What is the chemical symbol for hydrogen? # H
 
 !Science and Maths Section
 
