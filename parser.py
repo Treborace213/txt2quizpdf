@@ -13,8 +13,13 @@ class Parser():
 
     def parse(self):
         with open(self._path, 'r', encoding='utf-8') as text_file:
-            for line in text_file:
-                line.strip()
+            for line_num, line in enumerate(text_file, start=1):
+                line = line.strip()
+
+                # If line is whitespace just ignore it.
+                if not line:
+                    continue
+                
                 match line[0]:
                     # Subtitle
                     case '!':
@@ -28,3 +33,6 @@ class Parser():
                     # Page Break
                     case '~':
                         self._doc_builder.add_page_break()
+                    # Invalid line start
+                    case _:
+                        print(f"Skipped line: {line_num}. Invalid line start.")
