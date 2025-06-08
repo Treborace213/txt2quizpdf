@@ -3,7 +3,7 @@ This program reads a `.txt` file containing quiz content and generates a PDF wit
 
 ### How to Run  
 ```bash
-$PATHTOMAIN/main.py $PATHTOINPUT/quiz.txt
+$PATHTOMAIN/main.py $PATHTOQUIZ/quiz.txt
 ```
 
 The PDF will be saved in the current working directory with the same file name as the input file.
