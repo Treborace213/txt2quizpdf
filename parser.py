@@ -17,8 +17,8 @@ class Parser():
                 line.strip()
 
                 # Paragraph
-                if line[0] == '!':
-                    self._doc_builder.add_parragraph(line[1::])
+                if line[0] == '>':
+                    self._doc_builder.add_paragraph(line[1::])
                 # Question
-                else: 
+                elif line[0] == '?': 
                     self._doc_builder.add_question(line)

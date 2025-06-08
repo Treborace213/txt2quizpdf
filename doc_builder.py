@@ -23,6 +23,6 @@ class DocBuilder:
                 HorizonalLine,
             ]))
 
-    def add_parragraph(self, text: str):
+    def add_paragraph(self, text: str):
         self._flow.append(Paragraph(text, self._styles["Normal"]))
         self._flow.append(Spacer(1, 10))

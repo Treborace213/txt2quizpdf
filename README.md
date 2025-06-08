@@ -9,8 +9,8 @@ $PATHTOMAIN/main.py $PATHTOINPUT/quiz.txt
 The PDF will be saved in the current working directory with the same file name as the input file.
 
 ### Input Format  
-- No prefix → A question  
-- `!` → A paragraph of text  
+- `?` → A question  
+- `>` → A paragraph of text  
 
 #### Example:
 ```
