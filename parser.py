@@ -49,8 +49,14 @@ class Parser():
                         self._doc_builder.add_page_break()
                     case CommandChar.COMMENT:
                         continue
+                    case CommandChar.ESCAPE:
+                        Parser._print_skip_reason(line_num, "Line started with: \\")
                     case CommandChar.UNKNOWN:
-                        print(f"Skipped line: {line_num}. Invalid line start.")
+                        Parser._print_skip_reason(line_num, "Invalid line start.")
+
+    @staticmethod
+    def _print_skip_reason(line_num: int, reason: str):
+        print(f"Skipped line: {line_num}. {reason}")
 
     @staticmethod
     def _handle_line_text(line: str):
