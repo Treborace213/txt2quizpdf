@@ -12,24 +12,24 @@ def styles():
         fontSize=32,
         alignment=TA_CENTER,
         leading=40,
-        spaceBefore=25,
-        spaceAfter=40
+        spaceBefore=6,
+        spaceAfter=6
     ),
     "Subtitle": ParagraphStyle(
         name="Subtitle",
         parent=base["Normal"],
         fontSize=20,
         leading=25,
-        spaceBefore=18,
-        spaceAfter=18
+        spaceBefore=4,
+        spaceAfter=10
     ),
     "Normal": ParagraphStyle(
         name="Normal",
         parent=base["Normal"],
         fontSize=14,
         leading=16,
-        spaceBefore=10,
-        spaceAfter=10
+        spaceBefore=0,
+        spaceAfter=0
     )
 }
 
