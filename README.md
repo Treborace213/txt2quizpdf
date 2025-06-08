@@ -13,6 +13,7 @@ The PDF will be saved in the current working directory with the same file name a
 - `?` → A question
 - `>` → A paragraph of text  
 - `~` → A page break
+- `#` → A comment (a line to be ignored)
 
 #### Example:
 ```

@@ -19,7 +19,7 @@ class Parser():
                 # If line is whitespace just ignore it.
                 if not line:
                     continue
-                
+
                 match line[0]:
                     # Subtitle
                     case '!':
@@ -33,6 +33,9 @@ class Parser():
                     # Page Break
                     case '~':
                         self._doc_builder.add_page_break()
+                    # Comment
+                    case '#':
+                        continue
                     # Invalid line start
                     case _:
                         print(f"Skipped line: {line_num}. Invalid line start.")
