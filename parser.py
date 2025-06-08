@@ -15,10 +15,13 @@ class Parser():
         with open(self._path, 'r') as text_file:
             for line in text_file:
                 line.strip()
-
-                # Paragraph
-                if line[0] == '>':
-                    self._doc_builder.add_paragraph(line[1::])
-                # Question
-                elif line[0] == '?': 
-                    self._doc_builder.add_question(line)
+                match line[0]:
+                    # Subtitle
+                    case '!':
+                        self._doc_builder.add_subtitle(line[1:])
+                    # Paragraph
+                    case '>':
+                        self._doc_builder.add_paragraph(line[1:])
+                    # Question
+                    case '?': 
+                        self._doc_builder.add_question(line[1:])
