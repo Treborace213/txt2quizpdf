@@ -20,6 +20,9 @@ class Parser():
                 if not line:
                     continue
 
+                # When adding commands with this implimentation,
+                # it is key that they are only one char long
+
                 match line[0]:
                     # Subtitle
                     case '!':

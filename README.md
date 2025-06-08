@@ -7,6 +7,7 @@ $PATHTOMAIN/main.py $PATHTOINPUT/quiz.txt
 ```
 
 The PDF will be saved in the current working directory with the same file name as the input file.
+The title on the page will also have the same text as the input file name.
 
 ### Input Format  
 - `!` → A subtitle
@@ -17,8 +18,29 @@ The PDF will be saved in the current working directory with the same file name a
 
 #### Example:
 ```
-!Please answer the following questions carefully.
-What does CPU stand for?
-What is 2 + 2?
-!Write your answers clearly in the space provided.
+# Sample quiz
+
+!Welcome to the General Knowledge Quiz
+
+>This quiz covers a range of general knowledge topics. Read each question carefully and answer in the space provided.
+
+?What is the capital city of France?
+?Who wrote the play "Romeo and Juliet"?
+?What is the chemical symbol for water?
+
+!Science and Maths Section
+
+?What planet is known as the Red Planet?
+?What is the square root of 64?
+?Explain the process of photosynthesis in your own words.
+
+~
+
+!History and Geography
+
+>Answer the following history and geography questions.
+
+?In which year did the Titanic sink?
+?Name one country that shares a border with Germany.
+?What ancient civilization built the pyramids?
 ```
