@@ -25,3 +25,6 @@ class Parser():
                     # Question
                     case '?': 
                         self._doc_builder.add_question(line[1:])
+                    # Page Break
+                    case '~':
+                        self._doc_builder.add_page_break()

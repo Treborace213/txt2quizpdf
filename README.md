@@ -12,6 +12,7 @@ The PDF will be saved in the current working directory with the same file name a
 - `!` → A subtitle
 - `?` → A question
 - `>` → A paragraph of text  
+- `~` → A page break
 
 #### Example:
 ```

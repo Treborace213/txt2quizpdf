@@ -1,4 +1,4 @@
-from reportlab.platypus import SimpleDocTemplate, KeepTogether, Paragraph, Spacer
+from reportlab.platypus import SimpleDocTemplate, KeepTogether, Paragraph, Spacer, PageBreak
 from doc_styles import styles, AnswerLine
 
 class DocBuilder:
@@ -29,3 +29,6 @@ class DocBuilder:
 
     def add_subtitle(self, text: str):
         self._flow.append(Paragraph(text, self._styles["Subtitle"]))
+
+    def add_page_break(self):
+        self._flow.append(PageBreak())
