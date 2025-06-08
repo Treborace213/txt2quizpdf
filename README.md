@@ -10,12 +10,15 @@ The PDF will be saved in the current working directory with the same file name a
 The title on the page will also have the same text as the input file name.
 Any whitespace not in a block of text is ignored.
 
-### Input Format  
-- `!` → A subtitle
-- `?` → A question
-- `>` → A paragraph of text  
-- `~` → A page break
-- `#` → A comment (a line to be ignored)
+### Line Start Format  
+- `!` → Subtitle  
+- `?` → Question  
+- `>` → Paragraph text  
+- `~` → Page break  
+- `#` → Comment (ignored line)
+
+### Inline Text Commands  
+- `#` → Comment (useful for writing answer notes)
 
 #### Example:
 ```
