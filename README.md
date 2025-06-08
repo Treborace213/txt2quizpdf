@@ -17,7 +17,8 @@ Any whitespace not in a block of text is ignored.
 - `~` → Page break  
 - `#` → Comment (ignored line)
 
-### Inline Text Commands  
+### Inline Text Commands
+- `\` escapes the following character to treat it as plain text (use to disable inline commands)
 - `#` → Comment (useful for writing answer notes)
 
 #### Example:

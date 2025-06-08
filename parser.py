@@ -10,6 +10,7 @@ class CommandChar(Enum):
     QUESTION = '?'      # Start of line
     PAGE_BREAK = '~'    # Start of line
     COMMENT = '#'       # Start of line & inline
+    ESCAPE = '\\'       # Inline
 
     # Functions the same name as 'CommandChar(value)'
     # but if no command exists it returns CommandChar.UNKNOWN
@@ -56,8 +57,20 @@ class Parser():
         command_char = CommandChar.from_value(line[0])
         text = line[1:]
         read = ""
+        escape_next_char = False
         for char in text:
+            if escape_next_char:
+                read += char
+                escape_next_char = False
+                continue
+
+            if char == CommandChar.ESCAPE.value:
+                escape_next_char = True
+                continue
+
             if char == CommandChar.COMMENT.value:
                 break
+            
             read += char
+
         return command_char, read.strip()
