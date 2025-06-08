@@ -8,6 +8,7 @@ $PATHTOMAIN/main.py $PATHTOINPUT/quiz.txt
 
 The PDF will be saved in the current working directory with the same file name as the input file.
 The title on the page will also have the same text as the input file name.
+Any whitespace not in a block of text is ignored.
 
 ### Input Format  
 - `!` → A subtitle
@@ -20,13 +21,13 @@ The title on the page will also have the same text as the input file name.
 ```
 # Sample quiz
 
-!Welcome to the General Knowledge Quiz
+! Welcome to the General Knowledge Quiz
 
->This quiz covers a range of general knowledge topics. Read each question carefully and answer in the space provided.
+> This quiz covers a range of general knowledge topics. Read each question carefully and answer in the space provided.
 
-?What is the capital city of France?
-?Who wrote the play "Romeo and Juliet"?
-?What is the chemical symbol for water?
+? What is the capital city of France?
+? Who wrote the play "Romeo and Juliet"?
+? What is the chemical symbol for water?
 
 !Science and Maths Section
 
