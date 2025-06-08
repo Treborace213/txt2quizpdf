@@ -19,7 +19,7 @@ Any issues will be flagged and that line will be skipped.
 - `#` → Comment (ignored line)  
 
 ### Inline Text Commands
-- `\` escapes the following character to treat it as plain text (use to disable inline commands)  
+- `\` → Escapes the following character to treat it as plain text (use to disable inline commands)  
 - `#` → Comment (useful for writing answer notes)  
 
 #### Example:
