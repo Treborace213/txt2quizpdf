@@ -30,13 +30,11 @@ class Parser():
             for line_num, line in enumerate(text_file, start=1):
                 line = line.strip()
 
-                # If line is whitespace just ignore it.
+                # Skip empty lines.
                 if not line:
                     continue
 
-                # When adding commands with this implimentation,
-                # it is key that they are only one char long
-
+                # Command markers must be exactly one character long.
                 command_char, text = Parser._handle_line_text(line)
 
                 match command_char:
