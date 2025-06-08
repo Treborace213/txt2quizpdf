@@ -12,7 +12,7 @@ class Parser():
         self._doc_builder.build()
 
     def parse(self):
-        with open(self._path, 'r') as text_file:
+        with open(self._path, 'r', encoding='utf-8') as text_file:
             for line in text_file:
                 line.strip()
                 match line[0]:
