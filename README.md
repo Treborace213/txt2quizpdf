@@ -1,26 +1,26 @@
-### Overview  
+### Overview
 This program reads a `.txt` file containing quiz content and generates a PDF with formatted questions and answer space.
 
-### How to Run  
+### How to Run
 ```bash
 $PATHTOMAIN/main.py $PATHTOQUIZ/quiz.txt
 ```
 
-The PDF will be saved in the current working directory with the same file name as the input file.
-The title on the page will also have the same text as the input file name.
-Any whitespace not in a block of text is ignored.
-Any issues will be flagged and that line will be skipped.
+The PDF will be saved in the current working directory with the same file name as the input file.  
+The title on the page will also have the same text as the input file name.  
+Any whitespace not in a block of text is ignored.  
+Any issues will be flagged and that line will be skipped.  
 
-### Line Start Format  
+### Line Start Format
 - `!` → Subtitle  
 - `?` → Question  
 - `>` → Paragraph text  
 - `~` → Page break  
-- `#` → Comment (ignored line)
+- `#` → Comment (ignored line)  
 
 ### Inline Text Commands
-- `\` escapes the following character to treat it as plain text (use to disable inline commands)
-- `#` → Comment (useful for writing answer notes)
+- `\` escapes the following character to treat it as plain text (use to disable inline commands)  
+- `#` → Comment (useful for writing answer notes)  
 
 #### Example:
 ```
