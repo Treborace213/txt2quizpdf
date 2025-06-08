@@ -1,5 +1,5 @@
 from reportlab.platypus import SimpleDocTemplate, KeepTogether, Paragraph, Spacer
-from doc_styles import styles, HorizonalLine
+from doc_styles import styles, AnswerLine
 
 class DocBuilder:
     def __init__(self, name: str):
@@ -20,7 +20,7 @@ class DocBuilder:
         self._flow.append(KeepTogether([
                 Paragraph(text, self._styles["Normal"]),
                 Spacer(1, 10),
-                HorizonalLine,
+                AnswerLine,
             ]))
 
     def add_paragraph(self, text: str):

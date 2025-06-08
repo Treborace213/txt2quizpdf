@@ -33,4 +33,4 @@ def styles():
     )
 }
 
-HorizonalLine = HRFlowable(width="100%", thickness=1, color="black", spaceBefore=16, spaceAfter=16)
+AnswerLine = HRFlowable(width="100%", thickness=1, color="black", spaceBefore=16, spaceAfter=16, dash=(1,2))
