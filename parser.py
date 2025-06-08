@@ -37,7 +37,7 @@ class Parser():
                 # When adding commands with this implimentation,
                 # it is key that they are only one char long
 
-                command_char, text = self._handle_line_text(line)
+                command_char, text = Parser._handle_line_text(line)
 
                 match command_char:
                     case CommandChar.SUBTITLE:
@@ -53,7 +53,8 @@ class Parser():
                     case CommandChar.UNKNOWN:
                         print(f"Skipped line: {line_num}. Invalid line start.")
 
-    def _handle_line_text(self, line: str):
+    @staticmethod
+    def _handle_line_text(line: str):
         command_char = CommandChar.from_value(line[0])
         text = line[1:]
         read = ""
